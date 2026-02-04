@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поиск авиабилетов | SkyFinder</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-plane"></i>
+                        <h1>SkyFinder</h1>
+                        <span class="tagline">Найди свой идеальный полет</span>
+                    </div>
+                    
+                    <nav class="main-nav">
+                        <a href="#" class="nav-link active">
+                            <i class="fas fa-search"></i>
+                            <span>Поиск рейсов</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Мои бронирования</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-percent"></i>
+                            <span>Акции</span>
+                        </a>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-question-circle"></i>
+                            <span>Помощь</span>
+                        </a>
+                    </nav>
+                    
+                    <div class="user-actions">
+                        <div class="language-selector">
+                            <i class="fas fa-globe"></i>
+                            <span>RU</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <button class="notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-count">3</span>
+                        </button>
+                        <button class="user-profile">
+                            <i class="fas fa-user-circle"></i>
+                            <span>Алексей</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-bottom">
+            <div class="container">
+                <div class="breadcrumbs">
+                    <a href="#">Главная</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Поиск авиабилетов</span>
+                </div>
+                
+                <div class="header-stats">
+                    <div class="stat-item">
+                        <i class="fas fa-plane-departure"></i>
+                        <div>
+                            <div class="stat-number">2,547</div>
+                            <div class="stat-label">рейсов сегодня</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-tag"></i>
+                        <div>
+                            <div class="stat-number">156</div>
+                            <div class="stat-label">спецпредложений</div>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">поддержка</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container main-content">
+        <!-- Форма поиска -->
+        <section class="search-section">
+            <div class="search-header">
+                <h2><i class="fas fa-search-location"></i> Поиск авиарейсов</h2>
+                <div class="search-toggle">
+                    <button class="toggle-btn active">В одну сторону</button>
+                    <button class="toggle-btn">Туда и обратно</button>
+                    <button class="toggle-btn">Сложный маршрут</button>
+                </div>
+            </div>
+            
+            <div class="search-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departureCity">
+                            <i class="fas fa-plane-departure"></i>
+                            Город отправления
+                        </label>
+                        <div class="input-with-icon">
+                            <input type="text" id="departureCity" placeholder="Откуда летим?" value="Москва (MOW)">
+                            <i class="fas fa-exchange-alt swap-btn" title="Поменять местами"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="arrivalCity">
+                            <i class="fas fa-plane-arrival"></i>
+                            Город прибытия
+                        </label>
+                        <input type="text" id="arrivalCity" placeholder="Куда летим?" value="Санкт-Петербург (LED)">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="departureDate">
+                            <i class="fas fa-calendar-day"></i>
+                            Дата отправления
+                        </label>
+                        <div class="date-input">
+                            <input type="text" id="departureDate" placeholder="дд.мм.гггг" value="25.10.2023">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="returnDate">
+                            <i class="fas fa-calendar-week"></i>
+                            Дата возвращения
+                        </label>
+                        <div class="date-input">
+                            <input type="text" id="returnDate" placeholder="дд.мм.гггг" value="28.10.2023">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="passengers">
+                            <i class="fas fa-users"></i>
+                            Пассажиры
+                        </label>
+                        <div class="passenger-selector">
+                            <input type="text" id="passengers" value="1 взрослый" readonly>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="travelClass">
+                            <i class="fas fa-couch"></i>
+                            Класс обслуживания
+                        </label>
+                        <div class="select-wrapper">
+                            <select id="travelClass">
+                                <option value="economy" selected>Эконом класс</option>
+                                <option value="premium">Премиум эконом</option>
+                                <option value="business">Бизнес класс</option>
+                                <option value="first">Первый класс</option>
+                            </select>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="btn-secondary">
+                        <i class="fas fa-redo"></i>
+                        Сбросить
+                    </button>
+                    <button class="btn-primary">
+                        <i class="fas fa-search"></i>
+                        Найти рейсы
+                        <span class="btn-badge">64 варианта</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="quick-search">
+                <h4>Популярные направления:</h4>
+                <div class="quick-links">
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-plane"></i>
+                        Москва → Сочи
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-plane"></i>
+                        СПб → Калининград
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-plane"></i>
+                        Екатеринбург → Москва
+                    </a>
+                    <a href="#" class="quick-link">
+                        <i class="fas fa-plane"></i>
+                        Казань → Санкт-Петербург
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-wrapper">
+            <!-- Фильтры -->
+            <aside class="filters-sidebar">
+                <div class="filters-header">
+                    <h3><i class="fas fa-filter"></i> Фильтры</h3>
+                    <button class="clear-filters">
+                        <i class="fas fa-times"></i>
+                        Сбросить все
+                    </button>
+                </div>
+                
+                <!-- Фильтр по остановкам -->
+                <div class="filter-section">
+                    <h4 class="filter-title">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Количество остановок
+                    </h4>
+                    <div class="filter-options">
+                        <label class="checkbox-option">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                Без остановок
+                                <span class="option-count">12</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                1 остановка
+                                <span class="option-count">8</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                2+ остановки
+                                <span class="option-count">5</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Фильтр по цене -->
+                <div class="filter-section">
+                    <h4 class="filter-title">
+                        <i class="fas fa-tag"></i>
+                        Цена, ₽
+                    </h4>
+                    <div class="price-filter">
+                        <div class="price-range">
+                            <span class="price-min">3 500 ₽</span>
+                            <span class="price-max">24 800 ₽</span>
+                        </div>
+                        <div class="range-slider">
+                            <div class="slider-track"></div>
+                            <div class="slider-thumb left"></div>
+                            <div class="slider-thumb right"></div>
+                        </div>
+                        <div class="price-inputs">
+                            <input type="text" placeholder="от 3 500" class="price-input">
+                            <span class="dash">—</span>
+                            <input type="text" placeholder="до 24 800" class="price-input">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Фильтр по авиакомпаниям -->
+                <div class="filter-section">
+                    <h4 class="filter-title">
+                        <i class="fas fa-building"></i>
+                        Авиакомпании
+                    </h4>
+                    <div class="filter-options">
+                        <label class="checkbox-option">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                <div class="airline-info">
+                                    <div class="airline-logo">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="airline-details">
+                                        <span class="airline-name">Аэрофлот</span>
+                                        <span class="airline-price">от 4 200 ₽</span>
+                                    </div>
+                                </div>
+                                <span class="option-count">7</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                <div class="airline-info">
+                                    <div class="airline-logo s7">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="airline-details">
+                                        <span class="airline-name">S7 Airlines</span>
+                                        <span class="airline-price">от 3 800 ₽</span>
+                                    </div>
+                                </div>
+                                <span class="option-count">5</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                <div class="airline-info">
+                                    <div class="airline-logo ural">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="airline-details">
+                                        <span class="airline-name">Уральские авиалинии</span>
+                                        <span class="airline-price">от 5 100 ₽</span>
+                                    </div>
+                                </div>
+                                <span class="option-count">3</span>
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                <div class="airline-info">
+                                    <div class="airline-logo pobeda">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="airline-details">
+                                        <span class="airline-name">Победа</span>
+                                        <span class="airline-price">от 3 500 ₽</span>
+                                    </div>
+                                </div>
+                                <span class="option-count">6</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Фильтр по времени вылета -->
+                <div class="filter-section">
+                    <h4 class="filter-title">
+                        <i class="fas fa-clock"></i>
+                        Время вылета
+                    </h4>
+                    <div class="time-filter">
+                        <div class="time-options">
+                            <button class="time-option active">Утро<br>06:00-12:00</button>
+                            <button class="time-option">День<br>12:00-18:00</button>
+                            <button class="time-option">Вечер<br>18:00-00:00</button>
+                            <button class="time-option">Ночь<br>00:00-06:00</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Дополнительные фильтры -->
+                <div class="filter-section">
+                    <h4 class="filter-title">
+                        <i class="fas fa-sliders-h"></i>
+                        Дополнительно
+                    </h4>
+                    <div class="filter-options">
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                Только прямые рейсы
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                Багаж включен
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                Возвратные билеты
+                            </span>
+                        </label>
+                        <label class="checkbox-option">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span class="option-text">
+                                С акциями и скидками
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="filter-footer">
+                    <button class="apply-filters">
+                        <i class="fas fa-check"></i>
+                        Применить фильтры
+                        <span class="filter-count">4</span>
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Список рейсов -->
+            <section class="flights-list">
+                <div class="flights-header">
+                    <div class="flights-info">
+                        <h3>Найдено <span class="highlight">25 рейсов</span></h3>
+                        <p class="route-info">
+                            <i class="fas fa-route"></i>
+                            Москва (MOW) → Санкт-Петербург (LED) • 25 окт 2023
+                        </p>
+                    </div>
+                    
+                    <div class="sort-options">
+                        <span class="sort-label">Сортировать:</span>
+                        <select class="sort-select">
+                            <option value="price">По цене (сначала дешевые)</option>
+                            <option value="duration">По времени в пути</option>
+                            <option value="departure">По времени вылета</option>
+                            <option value="rating">По рейтингу авиакомпании</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Карточка рейса 1 -->
+                <article class="flight-card">
+                    <div class="flight-header">
+                        <div class="airline-brand">
+                            <div class="airline-logo large">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="airline-details">
+                                <h4 class="airline-name">Аэрофлот</h4>
+                                <span class="flight-number">SU 025</span>
+                                <span class="flight-type">Прямой рейс</span>
+                            </div>
+                        </div>
+                        <div class="flight-price">
+                            <div class="price-amount">4 200 ₽</div>
+                            <div class="price-per">за пассажира</div>
+                            <button class="select-flight">
+                                <i class="fas fa-shopping-cart"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-body">
+                        <div class="flight-timeline">
+                            <div class="departure-info">
+                                <div class="time">08:30</div>
+                                <div class="city">Москва (MOW)</div>
+                                <div class="terminal">Терминал D</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 ч 30 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                </div>
+                                <div class="stops">Прямой рейс</div>
+                            </div>
+                            
+                            <div class="arrival-info">
+                                <div class="time">10:00</div>
+                                <div class="city">Санкт-Петербург (LED)</div>
+                                <div class="terminal">Терминал 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ручная кладь: 10 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Багаж: 23 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Питание включено</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-wifi"></i>
+                                <span>Wi-Fi на борту</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-footer">
+                        <div class="flight-features">
+                            <span class="feature-tag best-price">Лучшая цена</span>
+                            <span class="feature-tag popular">Популярный рейс</span>
+                            <span class="feature-tag seats">Осталось 4 места</span>
+                        </div>
+                        <div class="flight-actions">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Карточка рейса 2 -->
+                <article class="flight-card">
+                    <div class="flight-header">
+                        <div class="airline-brand">
+                            <div class="airline-logo large s7">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="airline-details">
+                                <h4 class="airline-name">S7 Airlines</h4>
+                                <span class="flight-number">S7 312</span>
+                                <span class="flight-type">Прямой рейс</span>
+                            </div>
+                        </div>
+                        <div class="flight-price">
+                            <div class="price-amount">3 800 ₽</div>
+                            <div class="price-per">за пассажира</div>
+                            <button class="select-flight">
+                                <i class="fas fa-shopping-cart"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-body">
+                        <div class="flight-timeline">
+                            <div class="departure-info">
+                                <div class="time">12:15</div>
+                                <div class="city">Москва (MOW)</div>
+                                <div class="terminal">Терминал D</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 ч 25 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                </div>
+                                <div class="stops">Прямой рейс</div>
+                            </div>
+                            
+                            <div class="arrival-info">
+                                <div class="time">13:40</div>
+                                <div class="city">Санкт-Петербург (LED)</div>
+                                <div class="terminal">Терминал 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ручная кладь: 10 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Багаж: 23 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Питание за доп. плату</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-plug"></i>
+                                <span>Розетки у каждого кресла</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-footer">
+                        <div class="flight-features">
+                            <span class="feature-tag eco">Самый экологичный</span>
+                            <span class="feature-tag seats">Осталось 12 мест</span>
+                        </div>
+                        <div class="flight-actions">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Карточка рейса 3 (с остановкой) -->
+                <article class="flight-card">
+                    <div class="flight-header">
+                        <div class="airline-brand">
+                            <div class="airline-logo large ural">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="airline-details">
+                                <h4 class="airline-name">Уральские авиалинии</h4>
+                                <span class="flight-number">U6 178</span>
+                                <span class="flight-type">С 1 остановкой</span>
+                            </div>
+                        </div>
+                        <div class="flight-price">
+                            <div class="price-amount">5 100 ₽</div>
+                            <div class="price-per">за пассажира</div>
+                            <button class="select-flight">
+                                <i class="fas fa-shopping-cart"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-body">
+                        <div class="flight-timeline with-stop">
+                            <div class="departure-info">
+                                <div class="time">15:45</div>
+                                <div class="city">Москва (MOW)</div>
+                                <div class="terminal">Терминал B</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    45 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                    <div class="stop-point">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Калининград</span>
+                                    </div>
+                                </div>
+                                <div class="stops">Остановка 1 ч 20 мин</div>
+                            </div>
+                            
+                            <div class="stop-info">
+                                <div class="time">16:30</div>
+                                <div class="city">Калининград (KGD)</div>
+                                <div class="terminal">Пересадка</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 ч 10 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="arrival-info">
+                                <div class="time">19:00</div>
+                                <div class="city">Санкт-Петербург (LED)</div>
+                                <div class="terminal">Терминал 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ручная кладь: 5 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Багаж: 20 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-coffee"></i>
+                                <span>Бесплатные напитки</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-footer">
+                        <div class="flight-features">
+                            <span class="feature-tag cheapest">Самый дешевый</span>
+                            <span class="feature-tag seats">Осталось 7 мест</span>
+                        </div>
+                        <div class="flight-actions">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Карточка рейса 4 -->
+                <article class="flight-card">
+                    <div class="flight-header">
+                        <div class="airline-brand">
+                            <div class="airline-logo large pobeda">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="airline-details">
+                                <h4 class="airline-name">Победа</h4>
+                                <span class="flight-number">DP 415</span>
+                                <span class="flight-type">Прямой рейс</span>
+                            </div>
+                        </div>
+                        <div class="flight-price">
+                            <div class="price-amount">3 500 ₽</div>
+                            <div class="price-per">за пассажира</div>
+                            <button class="select-flight">
+                                <i class="fas fa-shopping-cart"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-body">
+                        <div class="flight-timeline">
+                            <div class="departure-info">
+                                <div class="time">20:20</div>
+                                <div class="city">Москва (MOW)</div>
+                                <div class="terminal">Терминал D</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 ч 35 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                </div>
+                                <div class="stops">Прямой рейс</div>
+                            </div>
+                            
+                            <div class="arrival-info">
+                                <div class="time">21:55</div>
+                                <div class="city">Санкт-Петербург (LED)</div>
+                                <div class="terminal">Терминал 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ручная кладь: 10 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Багаж: оплачивается отдельно</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-ban"></i>
+                                <span>Питание не включено</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-footer">
+                        <div class="flight-features">
+                            <span class="feature-tag lowcost">Лоукост</span>
+                            <span class="feature-tag seats">Осталось 3 места</span>
+                        </div>
+                        <div class="flight-actions">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Карточка рейса 5 -->
+                <article class="flight-card">
+                    <div class="flight-header">
+                        <div class="airline-brand">
+                            <div class="airline-logo large">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="airline-details">
+                                <h4 class="airline-name">Аэрофлот</h4>
+                                <span class="flight-number">SU 042</span>
+                                <span class="flight-type">Прямой рейс</span>
+                            </div>
+                        </div>
+                        <div class="flight-price">
+                            <div class="price-amount">4 800 ₽</div>
+                            <div class="price-per">за пассажира</div>
+                            <button class="select-flight">
+                                <i class="fas fa-shopping-cart"></i>
+                                Выбрать
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-body">
+                        <div class="flight-timeline">
+                            <div class="departure-info">
+                                <div class="time">22:10</div>
+                                <div class="city">Москва (MOW)</div>
+                                <div class="terminal">Терминал D</div>
+                            </div>
+                            
+                            <div class="flight-path">
+                                <div class="duration">
+                                    <i class="fas fa-clock"></i>
+                                    1 ч 25 мин
+                                </div>
+                                <div class="path-line">
+                                    <div class="plane-icon">
+                                        <i class="fas fa-plane"></i>
+                                    </div>
+                                </div>
+                                <div class="stops">Прямой рейс</div>
+                            </div>
+                            
+                            <div class="arrival-info">
+                                <div class="time">23:35</div>
+                                <div class="city">Санкт-Петербург (LED)</div>
+                                <div class="terminal">Терминал 1</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flight-details">
+                            <div class="detail-item">
+                                <i class="fas fa-suitcase"></i>
+                                <span>Ручная кладь: 10 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-weight-hanging"></i>
+                                <span>Багаж: 23 кг</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Ужин включен</span>
+                            </div>
+                            <div class="detail-item">
+                                <i class="fas fa-tv"></i>
+                                <span>Развлечения на борту</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flight-footer">
+                        <div class="flight-features">
+                            <span class="feature-tag comfortable">Самый комфортный</span>
+                            <span class="feature-tag seats">Осталось 9 мест</span>
+                        </div>
+                        <div class="flight-actions">
+                            <button class="action-btn">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                            </button>
+                            <button class="action-btn">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Пагинация -->
+                <div class="pagination">
+                    <button class="page-btn disabled">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="page-btn active">1</button>
+                    <button class="page-btn">2</button>
+                    <button class="page-btn">3</button>
+                    <span class="page-dots">...</span>
+                    <button class="page-btn">5</button>
+                    <button class="page-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="page-info">Показано 5 из 25 рейсов</div>
+                </div>
+            </section>
+        </div>
+        
+        <!-- Дополнительная информация -->
+        <section class="additional-info">
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Безопасность платежей</h4>
+                <p>Все платежи защищены SSL-шифрованием</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-headset"></i>
+                <h4>Поддержка 24/7</h4>
+                <p>Наша служба поддержки всегда на связи</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-tags"></i>
+                <h4>Лучшие цены</h4>
+                <p>Гарантия лучшей цены или возврат разницы</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-plane-slash"></i>
+                <h4>Гибкая отмена</h4>
+                <p>Возможность отменить бронь за 24 часа</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>SkyFinder</h4>
+                    <p>Сервис поиска и бронирования авиабилетов №1 в России</p>
+                    <div class="app-download">
+                        <button class="app-btn">
+                            <i class="fab fa-apple"></i>
+                            <div>
+                                <span>Скачать в</span>
+                                <strong>App Store</strong>
+                            </div>
+                        </button>
+                        <button class="app-btn">
+                            <i class="fab fa-google-play"></i>
+                            <div>
+                                <span>Доступно в</span>
+                                <strong>Google Play</strong>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Направления</h4>
+                    <a href="#">Внутренние рейсы</a>
+                    <a href="#">Международные рейсы</a>
+                    <a href="#">Популярные направления</a>
+                    <a href="#">Горящие предложения</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Информация</h4>
+                    <a href="#">Помощь и FAQ</a>
+                    <a href="#">Правила бронирования</a>
+                    <a href="#">Возврат билетов</a>
+                    <a href="#">Контакты</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Партнерам</h4>
+                    <a href="#">Для авиакомпаний</a>
+                    <a href="#">Для отелей</a>
+                    <a href="#">Для турагентств</a>
+                    <a href="#">Реклама на сайте</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Подписка на новости</h4>
+                    <p>Получайте лучшие предложения первыми</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Ваш email">
+                        <button class="subscribe-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 SkyFinder. Все права защищены.</p>
+                <div class="footer-links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Условия использования</a>
+                    <a href="#">Карта сайта</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
